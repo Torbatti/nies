@@ -2,7 +2,7 @@ const std = @import("std");
 
 const cpu = @import("cpu6502.zig");
 
-const Bus = struct {
+pub const Bus = struct {
     cpu: cpu.Cpu = undefined,
     ram: [64 * 1024]u8 = [_]u8{0} ** 64 * 1024, // initialize to zero
 
