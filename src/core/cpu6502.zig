@@ -19,6 +19,7 @@ pub const Cpu = struct {
     opcode: u8 = 0x00,
     cycles: u8 = 0x00,
 
+    // TODO: get an allocator pointer and allocate 256 instructions
     pub const Instruction = struct {
         name: []u8,
         operate: *const fn () u8,
