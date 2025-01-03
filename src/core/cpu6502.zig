@@ -19,6 +19,13 @@ pub const Cpu = struct {
     opcode: u8 = 0x00,
     cycles: u8 = 0x00,
 
+    pub const Instruction = struct {
+        name: []u8,
+        operate: *const fn () u8,
+        addrmode: *const fn () u8,
+        cycles: u8,
+    };
+
     // get and set flag?
     pub const Flags = enum(u8) {
         C = (1 << 0), // 0x01 // Carry bit
@@ -122,6 +129,7 @@ pub const Cpu = struct {
     fn TYA() u8 {}
 
     // Illegal Opcodes
+    fn XXX() u8 {}
 
     pub fn connect_bus(cpu: *Cpu, Bus: *bus.Bus) !void {
         cpu.bus = Bus;
